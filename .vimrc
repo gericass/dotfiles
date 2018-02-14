@@ -7,6 +7,19 @@ call neobundle#begin(expand('~/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'fatih/vim-go'
 
+" erlangのシンタックスハイライト
+NeoBundle 'vim-erlang/vim-erlang-runtime'
+" erlangのオムニ補完
+NeoBundle 'vim-erlang/vim-erlang-omnicomplete'
+
+""""" erlang用設定 """"""""
+" erlファイルをerlangとして認識する
+au BufNewFile,BufRead *.erl setf erlang
+au FileType erlang setlocal errorformat=%f:%l:\ %m
+
+" オムニ補完を<C-f>で
+imap <C-f> <C-x><C-o>
+
 call neobundle#end()
 filetype plugin indent on
 
