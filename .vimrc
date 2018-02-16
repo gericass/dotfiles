@@ -1,3 +1,4 @@
+set encoding=utf-8
 set nocompatible
 filetype plugin indent on
 
@@ -5,19 +6,17 @@ set runtimepath+=~/.vim/bundle/neobundle.vim/
 call neobundle#begin(expand('~/.vim/bundle'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
+" vim-go
 NeoBundle 'fatih/vim-go'
-
-" erlangのシンタックスハイライト
+" vim-erlang
 NeoBundle 'vim-erlang/vim-erlang-runtime'
-" erlangのオムニ補完
 NeoBundle 'vim-erlang/vim-erlang-omnicomplete'
-
-""""" erlang用設定 """"""""
-" erlファイルをerlangとして認識する
+" [] Hokan
+NeoBundle 'cohama/lexima.vim'
+" Erlang
 au BufNewFile,BufRead *.erl setf erlang
 au FileType erlang setlocal errorformat=%f:%l:\ %m
 
-" オムニ補完を<C-f>で
 imap <C-f> <C-x><C-o>
 
 call neobundle#end()
@@ -50,6 +49,5 @@ set hlsearch
 
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 let g:go_fmt_command = "goimports"
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap [<Enter> []<Left><CR><ESC><S-o>
-inoremap (<Enter> ()<Left><CR><ESC><S-o>
+noremap <C-j> <esc>
+noremap! <C-j> <esc>
